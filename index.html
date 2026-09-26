@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS-селектори та специфічність</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>CSS-селектори та специфічність</h1>
+
+      <section>
+        <h2>1. Селектор тега</h2>
+        <p>Селектор p застосовується до всіх абзаців.</p>
+      </section>
+
+      <section>
+        <h2>2. Селектор класу</h2>
+        <p class="highlight">
+          Селектор .highlight змінює оформлення цього абзацу.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Селектор атрибута</h2>
+        <input type="text" placeholder='Селектор [type="text"]' />
+      </section>
+
+      <section>
+        <h2>4. Дочірній селектор</h2>
+        <ul class="child-list">
+          <li>Перший дочірній елемент списку.</li>
+          <li>Другий дочірній елемент списку.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>5. Псевдоклас :hover</h2>
+        <button type="button" class="hover-button">Наведи курсор</button>
+      </section>
+
+      <section>
+        <h2>6. Псевдоклас :focus</h2>
+        <a href="#focus-example">Перейди до цього посилання за допомогою Tab</a>
+      </section>
+
+      <section>
+        <h2>7. Конфлікт №1</h2>
+        <p class="conflict-one" id="first-conflict">
+          Для цього абзацу перемагає селектор #first-conflict.
+        </p>
+        <p>
+          .conflict-one → (0, 1, 0)<br />
+          #first-conflict → (1, 0, 0)<br />
+          Перемагає #first-conflict, тому що ID має більшу специфічність.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Конфлікт №2</h2>
+        <div class="conflict-two">
+          <p>Для цього абзацу перемагає селектор .conflict-two p.</p>
+        </div>
+        <p>
+          p → (0, 0, 1)<br />
+          .conflict-two p → (0, 1, 1)<br />
+          Перемагає .conflict-two p, тому що селектор містить клас і тег.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
